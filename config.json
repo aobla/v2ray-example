@@ -16,10 +16,7 @@
           "decryption": "none"
         },
         "streamSettings": {
-          "network": "ws",
-          "wsSettings": {
-            "path": "/websocket"
-          }
+          "network": "ws"
         }
       }
     ],
