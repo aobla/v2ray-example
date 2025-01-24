@@ -1,5 +1,5 @@
 # Используем официальный образ V2Ray
-FROM v2fly/v2ray-core:latest
+FROM v2fly/v2ray-core:v5.24.0
 
 # Создаём директорию для конфигурации
 RUN mkdir -p /v2ray
