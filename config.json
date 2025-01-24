@@ -16,7 +16,7 @@
     },
     "inbounds": [
       {
-        "port": 443,
+        "port": "${PORT}",
         "protocol": "vmess",
         "settings": {
           "clients": [
@@ -29,7 +29,9 @@
         },
         "streamSettings": {
           "network": "ws",
-          "security": "none"
+          "wsSettings": {
+            "path": "/v2ray"
+          }
         }
       }
     ],
