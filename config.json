@@ -2,9 +2,21 @@
     "log": {
       "loglevel": "warning"
     },
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+          {
+              "type": "field",
+              "ip": [
+                  "geoip:private"
+              ],
+              "outboundTag": "block"
+          }
+      ]
+    },
     "inbounds": [
       {
-        "port": 430,
+        "port": 443,
         "protocol": "vmess",
         "settings": {
           "clients": [
@@ -16,14 +28,19 @@
           "decryption": "none"
         },
         "streamSettings": {
-          "network": "ws"
+          "network": "ws",
+          "security": "none"
         }
       }
     ],
     "outbounds": [
       {
         "protocol": "freedom",
-        "settings": {}
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
       }
     ]
   }
