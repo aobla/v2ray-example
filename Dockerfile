@@ -9,11 +9,12 @@ FROM v2fly/v2fly-core
 COPY config.json /etc/v2ray/config.json
 
 # Скрипт для генерации конфигурационного файла
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# COPY entrypoint.sh /entrypoint.sh
+# RUN chmod +x /entrypoint.sh
 
 # Указываем entrypoint для генерации конфигурации и запуска
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["v2ray", "run", "-config", "/etc/v2ray/config.json"]
 
 # Указываем команду для запуска V2Ray
 # CMD ["v2ray", "run", "-config", "/etc/v2ray/config.json"]
