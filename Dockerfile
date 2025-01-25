@@ -1,36 +1,9 @@
 # Используем официальный образ V2Ray
 FROM v2fly/v2fly-core
 
-# Создаем конфигурационный файл из переменной окружения
-RUN echo 
-'{
-  "inbounds": [
-    {
-      "port": '$PORT',
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "'$UUID'",
-            "alterId": 0
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/vmess"
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    }
-  ]
-}' > /etc/v2ray/config.json
+# Скрипт для генерации конфигурационного файла
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Запускаем V2Ray с указанным конфигом
-ENTRYPOINT ["v2ray", "run"]
+# Запуск V2Ray через скрипт
+ENTRYPOINT ["/entrypoint.sh"]
