@@ -1,32 +1,45 @@
 {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "port": "${PORT}",
-        "protocol": "vmess",
-        "settings": {
-          "clients": [
-            {
-              "id": "${UUID}",
-              "level": 0
-            }
-          ],
-          "decryption": "none"
-        },
-        "streamSettings": {
-          "network": "ws",
-          "wsSettings": {
-            "path": "/v2ray"
+  "log": {
+      "loglevel": "debug"
+  },
+  "routing": {
+      "domainStrategy": "AsIs",
+      "rules": [
+          {
+              "type": "field",
+              "ip": [
+                  "geoip:private"
+              ],
+              "outboundTag": "block"
           }
-        }
-      }
-    ],
-    "outbounds": [
+      ]
+  },
+  "inbounds": [
       {
-        "protocol": "freedom",
-        "tag": "direct"
+          "listen": "0.0.0.0",
+          "port": "${PORT}",
+          "protocol": "vmess",
+          "settings": {
+              "clients": [
+                  {
+                      "id": "${UUID}"
+                  }
+              ]
+          },
+          "streamSettings": {
+              "network": "ws",
+              "security": "none"
+          }
       }
-    ]
-  }
+  ],
+  "outbounds": [
+      {
+          "protocol": "freedom",
+          "tag": "direct"
+      },
+      {
+          "protocol": "blackhole",
+          "tag": "block"
+      }
+  ]
+}
