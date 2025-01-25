@@ -2,7 +2,8 @@
 FROM v2fly/v2fly-core
 
 # Создаем конфигурационный файл из переменной окружения
-RUN echo '{
+RUN echo 
+'{
   "inbounds": [
     {
       "port": '$PORT',
