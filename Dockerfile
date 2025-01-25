@@ -2,7 +2,7 @@
 FROM v2fly/v2fly-core
 
 # Устанавливаем утилиту gettext для использования envsubst
-RUN apk update && apk add --no-cache gettext bash
+# RUN apk update && apk add --no-cache gettext bash
 
 # Копируем шаблон конфигурации
 COPY config.json.template /etc/v2ray/config.json.template
