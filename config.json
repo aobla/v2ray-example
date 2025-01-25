@@ -28,7 +28,13 @@
           },
           "streamSettings": {
               "network": "ws",
-              "security": "none"
+              "wsSettings": {
+                "path": "/vmess"
+              }
+              "security": "tls",
+              "tlsSettings": {
+                "allowInsecure": false
+              }
           }
       }
   ],
