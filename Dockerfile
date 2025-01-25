@@ -1,14 +1,11 @@
-# Используем базовый образ Alpine с установленным gettext
-FROM alpine:latest
+# Используем образ v2fly/v2fly-core
+FROM v2fly/v2fly-core
 
-# Устанавливаем gettext для использования envsubst
-RUN apk --no-cache add gettext
+# Устанавливаем утилиту gettext для использования envsubst
+RUN apk add --no-cache gettext
 
 # Копируем шаблон конфигурации
 COPY config.json.template /etc/v2ray/config.json.template
-
-# Устанавливаем V2Ray
-RUN apk add --no-cache v2ray
 
 # Скрипт для генерации конфигурационного файла
 COPY entrypoint.sh /entrypoint.sh
