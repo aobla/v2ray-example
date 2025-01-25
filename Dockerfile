@@ -1,12 +1,8 @@
 # Используем официальный образ V2Ray
 FROM v2fly/v2fly-core
 
-# Копируем шаблон конфигурационного файла
-COPY config.json /etc/v2ray/config.json
+# Копируем шаблон конфигурации
+COPY config.json.template /etc/v2ray/config.json.template
 
-# CMD ["v2ray", "help"]
-# Запуск V2Ray с использованием конфигурации
-# CMD ["/v2ray", "-config=/etc/v2ray/config.json"]
-
-# Запуск команды для вывода версии V2Ray, чтобы убедиться в доступности команды
-ENTRYPOINT ["v2ray", "run", "-config", "/etc/v2ray/config.json"]
+# Подставляем переменные окружения в конфигурацию и запускаем V2Ray
+CMD sh -c "envsubst < /etc/v2ray/config.json.template > /etc/v2ray/config.json && v2ray run -config /etc/v2ray/config.json"
