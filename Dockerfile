@@ -5,7 +5,8 @@ FROM v2fly/v2fly-core
 # RUN apk update && apk add --no-cache gettext bash
 
 # Копируем шаблон конфигурации
-COPY config.json.template /etc/v2ray/config.json.template
+# COPY config.json.template /etc/v2ray/config.json.template
+COPY config.json /etc/v2ray/config.json
 
 # Скрипт для генерации конфигурационного файла
 COPY entrypoint.sh /entrypoint.sh
@@ -15,4 +16,4 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Указываем команду для запуска V2Ray
-CMD ["v2ray", "run", "-config", "/etc/v2ray/config.json"]
+# CMD ["v2ray", "run", "-config", "/etc/v2ray/config.json"]

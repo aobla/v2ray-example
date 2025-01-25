@@ -4,4 +4,5 @@
 # envsubst < /etc/v2ray/config.json.template > /etc/v2ray/config.json
 
 # Запускаем команду переданную через CMD (v2ray)
-exec "$@"
+# exec "$@"
+exec v2ray run
