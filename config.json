@@ -30,7 +30,7 @@
               "network": "ws",
               "wsSettings": {
                 "path": "/vmess"
-              }
+              },
               "security": "tls",
               "tlsSettings": {
                 "allowInsecure": false
