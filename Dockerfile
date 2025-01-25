@@ -6,4 +6,4 @@ COPY config.json /etc/v2ray/config.json
 
 CMD ["v2ray", "help"]
 # Запуск V2Ray с использованием конфигурации
-CMD ["/v2ray", "-config=/etc/v2ray/config.json"]
+# CMD ["/v2ray", "-config=/etc/v2ray/config.json"]
