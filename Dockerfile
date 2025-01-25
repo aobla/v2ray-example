@@ -15,4 +15,4 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Указываем команду для запуска V2Ray
-CMD ["v2ray", "run", "-config", "/etc/v2ray/config.json"]
+# CMD ["v2ray", "run", "-config", "/etc/v2ray/config.json"]
