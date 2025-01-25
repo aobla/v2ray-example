@@ -1,11 +1,14 @@
-# Используем официальный образ V2Ray
-FROM v2fly/v2fly-core
+# Используем базовый образ Alpine с установленным gettext
+FROM alpine:latest
 
-# Устанавливаем утилиту envsubst для обработки переменных окружения
-RUN apt-get update && apt-get install -y gettext && apt-get clean
+# Устанавливаем gettext для использования envsubst
+RUN apk --no-cache add gettext
 
 # Копируем шаблон конфигурации
 COPY config.json.template /etc/v2ray/config.json.template
+
+# Устанавливаем V2Ray
+RUN apk add --no-cache v2ray
 
 # Скрипт для генерации конфигурационного файла
 COPY entrypoint.sh /entrypoint.sh
