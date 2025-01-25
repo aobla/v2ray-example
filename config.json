@@ -2,27 +2,14 @@
   "log": {
       "loglevel": "debug"
   },
-  "routing": {
-      "domainStrategy": "AsIs",
-      "rules": [
-          {
-              "type": "field",
-              "ip": [
-                  "geoip:private"
-              ],
-              "outboundTag": "block"
-          }
-      ]
-  },
   "inbounds": [
       {
-          "listen": "0.0.0.0",
-          "port": "${PORT}",
+          "port": "'$PORT'",
           "protocol": "vmess",
           "settings": {
               "clients": [
                   {
-                      "id": "${UUID}"
+                      "id": "'$UUID'"
                   }
               ]
           },
@@ -41,11 +28,7 @@
   "outbounds": [
       {
           "protocol": "freedom",
-          "tag": "direct"
-      },
-      {
-          "protocol": "blackhole",
-          "tag": "block"
+          "settings": {}
       }
   ]
 }

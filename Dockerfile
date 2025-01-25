@@ -6,6 +6,3 @@ COPY config.json /etc/v2ray/config.json
 
 # Запускаем V2Ray с указанным конфигом
 ENTRYPOINT ["v2ray", "run"]
-
-CMD ["ls", "/"]
-CMD ["ls", "/etc/v2ray"]
