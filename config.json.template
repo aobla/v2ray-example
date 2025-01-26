@@ -1,6 +1,6 @@
 {
   "log": {
-      "loglevel": "debug"
+      "loglevel": "warning"
   },
   "inbounds": [
       {
@@ -16,7 +16,10 @@
           "streamSettings": {
               "network": "ws",
               "wsSettings": {
-                "path": "${PATH}"
+                "path": "${PATH}",
+                "headers": {
+                    "Host": "${HOST}"
+                }
               }
           }
       }
