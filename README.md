@@ -99,7 +99,7 @@
 
 - Протокол: VMess или VLESS (такой же как в `PATH`).
 
-- Адрес: `wss://<ваш_домен><ваш_путь>` или просто `<ваш_домен>` (например, `wss://yourdomain.com/vmess`).
+- Адрес: например, `wss://yourdomain.com/vmess` или `your-name-production.up.railway.app`.
 
 - UUID: используйте значение, указанное в переменной окружения `UUID`.
 
