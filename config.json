@@ -18,10 +18,6 @@
               "wsSettings": {
                 "path": "${PATH}"
               },
-              "security": "tls",
-              "tlsSettings": {
-                "allowInsecure": false
-              }
           }
       }
   ],
